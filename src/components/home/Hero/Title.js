@@ -1,13 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import { HERO } from "../../../pages/index"
 import PageTitle from "../../PageTitle"
 import Planet from "../../Planet"
 import useDetectJavascript from "../../../common/useDetectJavascript"
 
 import "./Title.module.css"
 
-const Title = ({ planetMorph }) => {
+const Title = ({ planetMorph, visible }) => {
   const hasJavascript = useDetectJavascript()
 
   if (!hasJavascript)
@@ -24,7 +25,12 @@ const Title = ({ planetMorph }) => {
       <span styleName="ideas">
         ideas
         <span styleName="planet">
-          <Planet morph={planetMorph} codeName="heroTittle" color="blue" />
+          <Planet
+            morph={planetMorph}
+            codeName="heroTittle"
+            visible={visible === HERO}
+            color="blue"
+          />
         </span>
       </span>{" "}
       <span styleName="glue">that empower</span> people

@@ -10,9 +10,11 @@ import Text from "../../Text"
 import Title from "../../Title"
 import Universe from "./Universe"
 
+import { VENTURES } from "../../../pages/index"
+
 import "./index.module.css"
 
-const Ventures = ({ planetMorph }) => (
+const Ventures = ({ planetMorph, visible }) => (
   <section styleName="root">
     <div styleName="content">
       <header styleName="header">
@@ -27,14 +29,17 @@ const Ventures = ({ planetMorph }) => (
         <HelpingWith />
       </section>
       <div styleName="universe">
-        <Universe subvisualPlanetMorph={planetMorph} />
+        <Universe
+          visible={visible === VENTURES}
+          subvisualPlanetMorph={planetMorph}
+        />
       </div>
       <section styleName="section portfolio">
         <header styleName="portfolioHeader">
           <Subtitle>Portfolio</Subtitle>
         </header>
         <div styleName="portfolioContent">
-          <Portfolio planetMorph={planetMorph} />
+          <Portfolio planetMorph={planetMorph} visible={visible === VENTURES} />
         </div>
       </section>
       <footer styleName="footer">

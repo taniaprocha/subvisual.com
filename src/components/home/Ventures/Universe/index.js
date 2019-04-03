@@ -5,13 +5,14 @@ import Planet from "../../../Planet"
 
 import "./index.module.css"
 
-const Universe = ({ subvisualPlanetMorph }) => (
+const Universe = ({ subvisualPlanetMorph, visible }) => (
   <div styleName="root">
     <div styleName="planet">
       <Planet
         codeName="universeSubvisualPlanet"
         morph={subvisualPlanetMorph}
         color="blue"
+        visible={visible}
         hovering
       />
     </div>

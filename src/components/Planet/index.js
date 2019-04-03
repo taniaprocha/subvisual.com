@@ -2,8 +2,8 @@ import _ from "lodash"
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
-import ViewableMonitor from "../ViewableMonitor"
 import colorCodes from "../colors"
+import ViewableMonitor from "../ViewableMonitor"
 
 import "./index.module.css"
 class Planet extends Component {
@@ -47,7 +47,7 @@ class Planet extends Component {
   }
 
   render() {
-    const { codeName, morph } = this.props
+    const { codeName, morph, visible } = this.props
     const animationName = `planet-${codeName}-hovering`
     const radialID = `planet-${codeName}-radial`
     const rootStyle = this.getRootStyle({ animationName })
@@ -71,7 +71,7 @@ class Planet extends Component {
         </style>
         <ViewableMonitor styleName="monitor">
           {isViewable => {
-            if (!isViewable) return <div />
+            if (!isViewable && !visible) return <div />
 
             return (
               <div {...morph} style={rootStyle} styleName="root">
@@ -97,13 +97,16 @@ class Planet extends Component {
 Planet.propTypes = {
   codeName: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  flat: PropTypes.bool,
   hovering: PropTypes.bool,
-  morph: PropTypes.func,
   hoveringMax: PropTypes.number.isRequired,
   hoveringMin: PropTypes.number.isRequired,
+  morph: PropTypes.func,
+  visible: PropTypes.bool,
 }
 
 Planet.defaultProps = {
+  flat: false,
   hovering: false,
   hoveringMax: 20,
   hoveringMin: -20,

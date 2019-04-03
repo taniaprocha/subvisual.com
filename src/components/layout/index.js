@@ -9,9 +9,9 @@ import "./index.module.css"
 
 const Layout = ({ children }) => (
   <div styleName="root">
-    <Helmet>
+    {/* <Helmet>
       <link rel="stylesheet" href="https://use.typekit.net/bcx8qfd.css" />
-    </Helmet>
+    </Helmet> */}
     <Header />
     <main>{children}</main>
     <Footer />

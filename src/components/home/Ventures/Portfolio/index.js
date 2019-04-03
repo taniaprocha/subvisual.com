@@ -33,7 +33,7 @@ class Portfolio extends Component {
   }
 
   render() {
-    const { planetMorph, ventures } = this.props
+    const { planetMorph, ventures, visible } = this.props
 
     return (
       <div styleName="root">
@@ -44,6 +44,7 @@ class Portfolio extends Component {
               morph={planetMorph}
               codeName="venturesSubvisualPlanet"
               color="blue"
+              visible={visible}
               hovering
             />
           </div>

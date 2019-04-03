@@ -2,16 +2,26 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Icon from "./Icon"
+import Planet from "../../Planet"
 import Subtitle from "../../Subtitle"
 import Text from "../../Text"
 import Team from "../Team"
 import Title from "../../Title"
 
+import { ABOUT } from "../../../pages/index"
+
 import "./index.module.css"
 
-const About = ({ planetMorph }) => (
+const About = ({ planetMorph, visible }) => (
   <section styleName="root">
-    <div styleName="background" />
+    <div styleName="background">
+      <Planet
+        morph={planetMorph}
+        visible={visible === ABOUT}
+        color="blue"
+        flat
+      />
+    </div>
     <div styleName="content">
       <header styleName="header">
         <Title color="purple">About</Title>
